@@ -1,15 +1,14 @@
-import React from "react";
 import {render} from "react-dom";
-import Counter from "./components/Counter";
-import App from "./App";
+import App from "./app/App";
 import {BrowserRouter} from "react-router-dom";
-import ThemProvider from "./theme/ThemProvider";
+import {ThemeProvider} from "app/providers/ThemeProvider";
+import "./shared/config/i18n/i18n";
 
 render(
-        <BrowserRouter>
-                    <ThemProvider>
-                       <App/>
-                    </ThemProvider>
-            </BrowserRouter>,
+    <BrowserRouter>
+        <ThemeProvider>
+           <App/>
+        </ThemeProvider>
+        </BrowserRouter>,
     document.getElementById("root")
 )
