@@ -12,10 +12,12 @@ export const Navbar = ({ className }: NavbarProps) => (
 
         <div className={cls.links}>
 
+            {/* eslint-disable-next-line i18next/no-literal-string */}
             <AppLink to="/about" className={cls.mainLinks} theme={AppLinkTheme.SECONDARY}>
                 О сайте
             </AppLink>
 
+            {/* eslint-disable-next-line i18next/no-literal-string */}
             <AppLink theme={AppLinkTheme.PRIMARY} to="/">
                 Главная
             </AppLink>

@@ -1,5 +1,7 @@
 {
     "Текстовый перевод": "Test example",
     "Перевод": "Translate",
-    "Язык": "English"
+    "Язык": "English",
+    "Загрузка": "Loading",
+    "Переключатель": "Toggle"
 }
