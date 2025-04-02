@@ -1,4 +1,4 @@
-export type BuildeMode = "production"| "development"
+export type BuildeMode = 'production'| 'development'
 
 export interface BuildPaths {
     entry: string,

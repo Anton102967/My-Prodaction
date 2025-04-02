@@ -1,4 +1,4 @@
-import AppLink from "./AppLink/ui/AppLink"
-import ThemeSwitcher from "./ThemeSwitcher/ui/ThemeSwitcher";
+import AppLink from './AppLink/ui/AppLink';
+import ThemeSwitcher from './ThemeSwitcher/ui/ThemeSwitcher';
 
-export {AppLink , ThemeSwitcher}
+export { AppLink, ThemeSwitcher };
