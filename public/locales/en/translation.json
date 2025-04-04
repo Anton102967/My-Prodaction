@@ -1,7 +1,9 @@
 {
-    "Текстовый перевод": "Test example",
-    "Перевод": "Translate",
-    "Язык": "English",
-    "Загрузка": "Loading",
-    "Переключатель": "Toggle"
+  "Page not found": "Page not found",
+  "Переключатель": "Toggle",
+  "Страница не найдена": "Page not found",
+  "Язык": "Languish",
+  "Произошла непредвиденная ошибка": "Unexpected error",
+  "Обновить страницу": "Refresh page",
+    "throw error": "throw error"
 }
