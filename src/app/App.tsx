@@ -1,22 +1,16 @@
-import React, { Suspense } from 'react';
-import './style/index.scss';
+import React, { Suspense, useEffect } from 'react';
+import './styles/index.scss';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
-import { useTheme } from 'app/providers/ThemeProvider';
 import { Sidebar } from 'widgets/Sidebar';
-import { classNames } from 'shared/lib/classNames/classNames';
 
 function App() {
     const { theme } = useTheme();
 
     return (
-        // eslint-disable-next-line max-len
-        <div className={classNames(
-            'app',
-            { hovered: true, selected: true },
-            [theme],
-        )}
-        >
+        <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
                 <div className="content-page">
@@ -27,4 +21,5 @@ function App() {
         </div>
     );
 }
+
 export default App;

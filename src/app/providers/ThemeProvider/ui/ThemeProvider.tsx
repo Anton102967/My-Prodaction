@@ -1,24 +1,20 @@
 import React, { FC, useMemo, useState } from 'react';
-// eslint-disable-next-line max-len
-import { LOCAL_STORAGE_THEME_KEY, ThemContext, Theme } from '../lib/ThemContext';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
-// eslint-disable-next-line max-len
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
+
 const ThemeProvider: FC = ({ children }) => {
     const [theme, setTheme] = useState<Theme>(defaultTheme);
-    const toggleTheme = () => {
-        setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
-    };
 
-    const defualtProps = useMemo(() => ({
+    const defaultProps = useMemo(() => ({
         theme,
         setTheme,
     }), [theme]);
 
     return (
-        <ThemContext.Provider value={defualtProps}>
+        <ThemeContext.Provider value={defaultProps}>
             {children}
-        </ThemContext.Provider>
+        </ThemeContext.Provider>
     );
 };
 

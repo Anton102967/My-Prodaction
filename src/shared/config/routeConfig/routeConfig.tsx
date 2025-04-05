@@ -1,7 +1,7 @@
 import { RouteProps } from 'react-router-dom';
-import { NotFoundPage } from 'pages/NotFountPage';
 import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
+import { NotFoundPage } from 'pages/NotFoundPage';
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -12,6 +12,7 @@ export enum AppRoutes {
 export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
+    // последний
     [AppRoutes.NOT_FOUND]: '*',
 };
 
