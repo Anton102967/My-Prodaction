@@ -1,12 +1,13 @@
 /* eslint-disable object-curly-spacing */
-import {classNames} from 'shared/lib/classNames/classNames';
-import {ButtonHTMLAttributes, FC} from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { ButtonHTMLAttributes, FC } from 'react';
 import cls from './Button.module.scss';
 
 /* eslint-disable object-curly-spacing */
 
 export enum ButtonTheme {
     CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
     BACKGROUD = 'background',
     BACKGROUD_INVERTED = 'backgroundInverted',
