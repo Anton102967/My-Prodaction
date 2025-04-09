@@ -11,8 +11,8 @@
 }
 
 .Modal.dark {
-  --bg-color: #090949;
-  --primary-color: #04ff04;
+    --bg-color: #090949;
+    --primary-color: #04ff04;
 }
 
 .overlay {
@@ -28,7 +28,6 @@
     padding: 20px;
     border-radius: 12px;
     background: var(--bg-color);
-
     transition: 0.3s transform;
     transform: scale(0.5);
     max-width: 60%;
@@ -42,7 +41,6 @@
     .content {
         transform: scale(1);
     }
-
 }
 
 .isClosing {
