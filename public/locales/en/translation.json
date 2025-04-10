@@ -12,5 +12,7 @@
   "О сайте": "About us",
   "Тумблер": "Toggle",
     "Короткий язык": "En",
-    "Войти": "Войти"
+    "Войти": "Войти",
+    "increment": "increment",
+  "decrement": "decrement"
 }
