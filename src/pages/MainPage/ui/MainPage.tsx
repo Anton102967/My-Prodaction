@@ -7,15 +7,15 @@ const MainPage = () => {
     const [value, setValue] = useState('');
 
     const onChange = (val: string) => {
-        setValue(val)
-    }
+        setValue(val);
+    };
 
     return (
         <div>
             {t('Главная страница')}
             <Input
                 /* eslint-disable-next-line i18next/no-literal-string */
-                placeholder= 'Введите текcт'
+                placeholder="Введите текcт"
                 onChange={onChange}
                 value={value}
 

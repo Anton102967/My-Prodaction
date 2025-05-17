@@ -18,16 +18,16 @@ export const Navbar = ({ className }: NavbarProps) => {
     const dispatch = useDispatch();
 
     const onCloseModal = useCallback(() => {
-        setIsAuthModal(false)
-    }, [])
+        setIsAuthModal(false);
+    }, []);
 
     const onShowModal = useCallback(() => {
-        setIsAuthModal(true)
-    }, [])
+        setIsAuthModal(true);
+    }, []);
 
     const onLogout = useCallback(() => {
-        dispatch(userActions.logout())
-    }, [dispatch])
+        dispatch(userActions.logout());
+    }, [dispatch]);
 
     if (authData) {
         return (
@@ -40,7 +40,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                     {t('Выйти')}
                 </Button>
             </div>
-        )
+        );
     }
 
     return (
@@ -52,10 +52,12 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal
-                isOpen={isAuthModal}
-                onClose={onCloseModal}
-            />
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
+            )}
         </div>
     );
 };

@@ -31,7 +31,6 @@ onlyTitle.args = {
     title: 'Title lorem ipsum',
 };
 
-
 export const onlyText = Template.bind({});
 onlyText.args = {
     text: 'Description Description Description',
@@ -41,16 +40,15 @@ PrimaryDark.args = {
     title: 'Text lorem ipsun',
     text: 'Text Text Text Text Text',
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const onlyTitleDark = Template.bind({});
 onlyTitleDark.args = {
     title: 'Title lorem ipsum',
 };
-onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
-
+onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const onlyTextDark = Template.bind({});
 onlyTextDark.args = {
     text: 'Description Description Description',
 };
-onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
+onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -1,8 +1,8 @@
 /* eslint-disable object-curly-spacing */
-import {classNames} from 'shared/lib/classNames/classNames';
-import {useTranslation} from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 import React from 'react';
-import {Button, ButtonTheme} from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 /* eslint-disable object-curly-spacing */
 
@@ -24,7 +24,11 @@ export const LangSwitcher = ({ className, short }: LangSwitcherProps) => {
             theme={ButtonTheme.CLEAR}
             onClick={toggle}
         >
-            {t(short ? 'Короткий язык' : 'Язык')}
+            { short
+                ? t('Короткий язык') // i18next-extract-disable-line
+                : t('Язык') // i18next-extract-disable-line
+                // eslint-disable-next-line react/jsx-curly-newline
+            }
         </Button>
     );
 };

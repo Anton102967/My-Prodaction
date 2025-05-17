@@ -6,7 +6,7 @@ export enum TextTheme {
     ERROR = 'error',
 }
 
-interface  TextProps {
+interface TextProps {
     className?: string,
     title?: string,
     text?: string,
@@ -22,7 +22,7 @@ export const Text = (props: TextProps) => {
     } = props;
 
     return (
-        <div className={classNames(cls.Text, {[cls[theme]]: true}, [className])}>
+        <div className={classNames(cls.Text, { [cls[theme]]: true }, [className])}>
             <p className={cls.title}>{title}</p>
             <p className={cls.text}>{text}</p>
         </div>

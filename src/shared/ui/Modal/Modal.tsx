@@ -14,61 +14,61 @@ interface ModalProps {
 
 const ANIMATION_DELAY = 300;
 
-export const Modal = ( props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
     const {
         className,
         children,
         isOpen,
         onClose,
         lazy,
-    } = props
+    } = props;
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timeRef = useRef<ReturnType<typeof setTimeout>>();
-    const { theme } = useTheme()
+    const { theme } = useTheme();
 
     useEffect(() => {
-        if(isOpen) {
-            setIsMounted(true)
+        if (isOpen) {
+            setIsMounted(true);
         }
     }, [isOpen]);
 
     const closeHandler = useCallback(() => {
-        if(onClose) {
-            setIsClosing(true)
+        if (onClose) {
+            setIsClosing(true);
             timeRef.current = setTimeout(() => {
                 onClose();
-                setIsClosing(false)
-            },ANIMATION_DELAY)
+                setIsClosing(false);
+            }, ANIMATION_DELAY);
         }
-    },[onClose])
+    }, [onClose]);
 
     const onKeyDown = useCallback((e:KeyboardEvent) => {
-        if(e.key === 'Escape') {
-            closeHandler()
+        if (e.key === 'Escape') {
+            closeHandler();
         }
-    },[closeHandler])
+    }, [closeHandler]);
 
-    const onContentClick = (e: React.MouseEvent)=> {
+    const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
-    }
+    };
 
     useEffect(() => {
-        if(isOpen) {
-            window.addEventListener("keydown", onKeyDown);
+        if (isOpen) {
+            window.addEventListener('keydown', onKeyDown);
         }
 
         return () => {
-            clearTimeout(timeRef.current)
-            window.removeEventListener("keydown", onKeyDown)
-        }
-    },[isOpen, onKeyDown])
+            clearTimeout(timeRef.current);
+            window.removeEventListener('keydown', onKeyDown);
+        };
+    }, [isOpen, onKeyDown]);
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
-    }
+    };
 
     if (lazy && !isMounted) {
         return null;

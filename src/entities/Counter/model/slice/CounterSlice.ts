@@ -3,7 +3,7 @@ import { CounterSchema } from 'entities/Counter';
 
 const initialState: CounterSchema = {
     value: 0,
-}
+};
 export const counterSlice = createSlice({
     name: 'counter',
     initialState,
