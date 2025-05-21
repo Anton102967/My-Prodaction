@@ -57,7 +57,8 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'jsx-a11y/click-events-have-key-events': 'warn',
         'no-param-reassign': 'off',
-        "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
+        "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,

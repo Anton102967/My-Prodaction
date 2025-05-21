@@ -18,7 +18,7 @@ Primary.args = {};
 Primary.decorators = [
     StoreDecorator(
         { loginForm: { username: '123', password: 'asd' } },
-        undefined,
+        {},
     ),
 ];
 
@@ -27,7 +27,7 @@ withError.args = {};
 withError.decorators = [
     StoreDecorator(
         { loginForm: { username: '123', password: 'asd', error: 'Пролизошла ошибка' } },
-        undefined,
+        {},
     ),
 ];
 
@@ -36,6 +36,6 @@ isLoading.args = {};
 isLoading.decorators = [
     StoreDecorator(
         { loginForm: { isLoading: true } },
-        undefined,
+        {},
     ),
 ];

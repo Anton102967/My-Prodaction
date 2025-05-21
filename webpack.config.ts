@@ -25,9 +25,12 @@ export default (env: BuildEnv) => {
         apiUrl,
     });
 
-    config.plugins.push(new DefinePlugin({
-        __IS_DEV__: true,
-    }));
+    config.plugins = config.plugins || [];
+    config.plugins.push(
+        new DefinePlugin({
+            __IS_DEV: JSON.stringify(isDev),
+        })
+    );
 
     return config;
 };
