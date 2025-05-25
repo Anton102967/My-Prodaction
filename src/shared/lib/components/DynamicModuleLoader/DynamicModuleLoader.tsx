@@ -28,7 +28,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
             dispatch({ type: '@INIT loginForm reducer' });
         });
         return () => {
-            Object.entries(reducers).forEach(([name, reducer]) => {
+            Object.entries(reducers).forEach(([name]) => {
                 if (removeAfterUnmout) {
                     store.reducerManager.remove(name as StateSchemaKey);
                     dispatch({ type: `@DESTROY ${name} reducer` });

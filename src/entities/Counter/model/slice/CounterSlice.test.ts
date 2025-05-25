@@ -1,5 +1,5 @@
+import { CounterSchema } from 'entities/Counter';
 import { counterActions, counterReducer } from './CounterSlice';
-import { CounterSchema } from '../types/counterSchema';
 
 describe('CounterSlice.test', () => {
     test('decrement', () => {
@@ -17,7 +17,6 @@ describe('CounterSlice.test', () => {
         ).toEqual({ value: 11 });
     });
     test('should work with empty state', () => {
-        const state: CounterSchema = { value: 10 };
 
         expect(
             counterReducer(undefined, counterActions.increment()),

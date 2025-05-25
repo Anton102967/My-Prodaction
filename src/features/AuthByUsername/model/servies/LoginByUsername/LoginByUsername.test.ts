@@ -15,7 +15,7 @@ interface User {
   username: string;
 }
 
-interface LoginByUsernameProps {
+export interface LoginByUsernameProps {
   username: string;
   password: string;
 }

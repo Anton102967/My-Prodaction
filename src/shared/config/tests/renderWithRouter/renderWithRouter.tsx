@@ -9,6 +9,7 @@ export interface renderWithRouterOptions {
 }
 export function renderWithRouter(component: ReactNode, options: renderWithRouterOptions) {
     const {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         route,
     } = options;
     return render(

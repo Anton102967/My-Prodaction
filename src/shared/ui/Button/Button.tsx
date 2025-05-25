@@ -9,6 +9,7 @@ export enum ButtonTheme {
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
     BACKGROUD = 'background',
     BACKGROUD_INVERTED = 'backgroundInverted',
 }
@@ -51,6 +52,7 @@ export const Button = memo ( (props:ButtonProps) => {
             type="button"
             className={classNames(cls.Button, mods, [className])}
             disabled={disabled}
+            /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...otherProps}
         >
             {children}

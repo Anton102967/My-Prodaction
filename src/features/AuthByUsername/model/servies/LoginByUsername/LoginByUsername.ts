@@ -8,7 +8,7 @@ interface LoginByUsernameProps {
     password: string,
 }
 
-enum LoginError {
+export enum LoginError {
     INCORRECT_DATA = '',
     SERVER_ERROR = '',
 }
@@ -29,6 +29,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
 
             return response.data;
         } catch (e) {
+            // eslint-disable-next-line no-console
             console.log(e);
             return rejectWithValue('error');
         }

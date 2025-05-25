@@ -11,6 +11,8 @@ export class TestAsyncThunk<Return, Arg, RejectedValue, Extra = undefined> {
 
     extra: Extra;
 
+    api?: any;
+
     constructor(
         actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
         extra?: Extra

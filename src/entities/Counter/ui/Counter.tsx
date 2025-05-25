@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { counterActions } from '../model/slice/CounterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface CounterProps {
     className?: string,
 }
