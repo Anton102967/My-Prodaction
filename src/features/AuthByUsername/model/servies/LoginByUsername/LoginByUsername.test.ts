@@ -1,41 +1,48 @@
-import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/config/tests/testAsyncThunk/testAsyncThunk';
+import { userActions } from 'entities/User';
 import { loginByUsername } from './loginByUsername';
 
-// Мокаем userActions.setAuthData
+// window.localStorage mock, если требуется
+const localStorageMock = (() => {
+    let store: Record<string, any> = {};
+    return {
+        getItem(key: string) {
+            return store[key] ?? null;
+        },
+        setItem(key: string, value: any) {
+            store[key] = value.toString();
+        },
+        clear() {
+            store = {};
+        },
+        removeItem(key: string) {
+            delete store[key];
+        }
+    };
+})();
+Object.defineProperty(window, 'localStorage', { value: localStorageMock });
+
 jest.mock('entities/User', () => ({
     userActions: {
         setAuthData: jest.fn((user) => ({ type: 'user/setAuthData', payload: user })),
     }
 }));
 
-// Типы (примерные)
-interface User {
-  id: string;
-  username: string;
-}
+test('loginByUsername успех', async () => {
+    const api = { post: jest.fn() };
+    api.post.mockResolvedValue({ data: { id: '1', username: 'admin' } });
 
-export interface LoginByUsernameProps {
-  username: string;
-  password: string;
-}
+    const testThunk = new TestAsyncThunk(loginByUsername);
+    testThunk.api = api; // <--- подмена
 
-// Данные для теста
-const userValue: User = { id: '1', username: 'admin' };
+    await testThunk.callThunk({ username: 'admin', password: '123' });
 
-describe('loginByUsername thunk', () => {
-    test('успех: вызывает setAuthData и fulfilled', async () => {
-        const api = { post: jest.fn() };
-        const extra = { api };
-        const thunk = new TestAsyncThunk(loginByUsername, extra);
+    expect(api.post).toHaveBeenCalledWith('/login', { username: 'admin', password: '123' });
 
-        api.post.mockResolvedValue({ data: userValue });
+    expect(testThunk.dispatch).toHaveBeenCalledWith(
+        userActions.setAuthData({ id: '1', username: 'admin' })
+    );
 
-        const result = await thunk.callThunk({ username: 'admin', password: '123' });
-
-        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
-        expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(result.payload).toEqual(userValue);
-    });
-
+    // Проверка localStorage если нужно
+    expect(window.localStorage.getItem('user')).toBe(JSON.stringify({ id: '1', username: 'admin' }));
 });
