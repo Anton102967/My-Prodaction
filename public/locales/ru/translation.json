@@ -26,5 +26,6 @@
         "": "Произошла ошибка загрузки статьи."
     },
     "ArticleImageBlockComponent": "ArticleImageBlockComponent",
-    "ArticleCodeBlockComponent": "ArticleCodeBlockComponent"
+    "ArticleCodeBlockComponent": "ArticleCodeBlockComponent",
+    "Коментарии отсуствуют": "Коментарии отсуствуют"
 }
