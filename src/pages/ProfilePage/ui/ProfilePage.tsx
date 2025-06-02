@@ -12,33 +12,36 @@ import {
     profileReducer,
     ValidateProfileError,
 } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/userAppDispatch/userAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 
 const reducers: ReducerList = {
     profile: profileReducer,
+};
+
+interface ProfilePageProps {
+    className?: string,
+
 }
 
-    interface  ProfilePageProps {
-        className?: string,
-
-    }
-
-const ProfilePage = ({className}: ProfilePageProps) => {
+const ProfilePage = ({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
-    const dispatch =useAppDispatch();
+    const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
-    const validateErrors = useSelector(getProfileValidateErrors) ;
+    const validateErrors = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{ id: string }>();
 
     const validateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
@@ -46,47 +49,47 @@ const ProfilePage = ({className}: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректное имя пользователя'),
-    }
+    };
 
-    useEffect(() => {
-        if(__PROJECT__ !== 'storybook') {
-            dispatch(FetchProfileData())
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(FetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({first: value || ''}))
+        dispatch(profileActions.updateProfile({ first: value || '' }));
 
-    }, [dispatch])
+    }, [dispatch]);
 
     const onChangeLastname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({lastname: value || ''}))
-    }, [dispatch])
+        dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    }, [dispatch]);
 
     const onChangeCity = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({city: value || ''}))
-    }, [dispatch])
+        dispatch(profileActions.updateProfile({ city: value || '' }));
+    }, [dispatch]);
 
     const onChangeAge = useCallback((value?: string) => {
         const numeric = value?.replace(/\D/g, '') || '';
-        dispatch(profileActions.updateProfile({ age: Number(numeric) }))
+        dispatch(profileActions.updateProfile({ age: Number(numeric) }));
     }, [dispatch]);
 
     const onChangeUsername = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({username: value || ''}))
+        dispatch(profileActions.updateProfile({ username: value || '' }));
     }, [dispatch]);
 
     const onChangeAvatar = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({avatar: value || ''}))
+        dispatch(profileActions.updateProfile({ avatar: value || '' }));
     }, [dispatch]);
 
     const onChangeCurrency = useCallback((currency?: Currency) => {
-        dispatch(profileActions.updateProfile({ currency }))
+        dispatch(profileActions.updateProfile({ currency }));
 
     }, [dispatch]);
 
     const onChangeCountry = useCallback((country?: Country) => {
-        dispatch(profileActions.updateProfile({ country }))
+        dispatch(profileActions.updateProfile({ country }));
     }, [dispatch]);
 
     return (
@@ -98,18 +101,18 @@ const ProfilePage = ({className}: ProfilePageProps) => {
                         .map((err) => (
                             <Text key={err} theme={TextTheme.ERROR} text={typeof err === 'string'
                                 ? validateErrorTranslates[err]
-                                : String(validateErrorTranslates[err])}/>
-                        )
+                                : String(validateErrorTranslates[err])} />
+                        ),
                         )
                 )
                 }
                 <ProfileCard
                     data={formData}
-                    isLoading = {isLoading}
-                    error = {error}
+                    isLoading={isLoading}
+                    error={error}
                     readonly={readonly}
-                    onChangeFirstname = {onChangeFirstname}
-                    onChangeLastname = {onChangeLastname}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
                     onChangeUsername={onChangeUsername}

@@ -17,13 +17,13 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const {
         children,
         reducers,
-        removeAfterUnmout,
+        removeAfterUnmout = true,
     } = props;
     const store = useStore() as ReduxStoreWithManegar;
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([name , reducer]) => {
+        Object.entries(reducers).forEach(([name, reducer]) => {
             store.reducerManager.add(name as StateSchemaKey, reducer);
             dispatch({ type: '@INIT loginForm reducer' });
         });

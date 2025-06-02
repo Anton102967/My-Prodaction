@@ -37,6 +37,7 @@ export class TestAsyncThunk<T> {
         return result;
     }
 }
+
 const data = {
     username: 'admin',
     age: 22,
@@ -52,7 +53,7 @@ describe('fetchProfileData.test', () => {
         const thunk = new TestAsyncThunk(FetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -63,7 +64,7 @@ describe('fetchProfileData.test', () => {
         const thunk = new TestAsyncThunk(FetchProfileData);
         // eslint-disable-next-line prefer-promise-reject-errors
         thunk.api.get.mockReturnValue(Promise.reject({ status: 403 }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(result.meta.requestStatus).toBe('rejected');
     });

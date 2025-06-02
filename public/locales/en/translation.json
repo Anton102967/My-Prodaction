@@ -27,5 +27,7 @@
     },
     "ArticleImageBlockComponent": "ArticleImageBlockComponent",
     "ArticleCodeBlockComponent": "ArticleCodeBlockComponent",
-    "Коментарии отсуствуют": "Коментарии отсуствуют"
+    "Коментарии отсуствуют": "Коментарии отсуствуют",
+    "Введите текст комментария": "Введите текст комментария",
+    "Отправить": "Отправить"
 }
