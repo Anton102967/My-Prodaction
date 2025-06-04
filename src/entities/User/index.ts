@@ -1,17 +1,16 @@
 export {
-    getUserAuthData
+    getUserAuthData,
 } from './model/selectors/getUserAuthData/getUserAuthData';
 
 export {
-    getUserInited
+    getUserInited,
 } from './model/selectors/getUserInited/getUserInited';
 
 export {
-    userActions,
     userReducer,
+    userActions,
 } from './model/slice/userSlice';
-
 export {
-    User,
     UserSchema,
+    User,
 } from './model/types/user';

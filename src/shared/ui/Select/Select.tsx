@@ -3,16 +3,17 @@ import { ChangeEvent, memo, useMemo } from 'react';
 import cls from './Select.module.scss';
 
 export interface SelectOption {
-    value: string,
-    content: string,
+    value: string;
+    content: string;
 }
-interface  SelectProps {
-    className?: string,
-    label?: string,
-    options?: SelectOption[],
-    value?: string,
-    onChange?:(value: string) => void,
-    readonly?: boolean,
+
+interface SelectProps {
+    className?: string;
+    label?: string;
+    options?: SelectOption[];
+    value?: string;
+    onChange?: (value: string) => void;
+    readonly?: boolean;
 }
 
 export const Select = memo((props: SelectProps) => {
@@ -20,18 +21,18 @@ export const Select = memo((props: SelectProps) => {
         className,
         label,
         options,
-        value,
         onChange,
+        value,
         readonly,
     } = props;
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        if(onChange) {
-            onChange?.(e.target.value)
+        if (onChange) {
+            onChange(e.target.value);
         }
-    }
+    };
 
-    const optionList = useMemo(() => options?.map(opt => (
+    const optionsList = useMemo(() => options?.map((opt) => (
         <option
             className={cls.option}
             value={opt.value}
@@ -39,13 +40,13 @@ export const Select = memo((props: SelectProps) => {
         >
             {opt.content}
         </option>
-    )), [options])
+    )), [options]);
 
-    const mods: Mods = {}
+    const mods: Mods = {};
 
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>
-            { label && (
+            {label && (
                 <span className={cls.label}>
                     {`${label}>`}
                 </span>
@@ -56,10 +57,8 @@ export const Select = memo((props: SelectProps) => {
                 value={value}
                 onChange={onChangeHandler}
             >
-                {optionList}
+                {optionsList}
             </select>
         </div>
     );
 });
-
-export default Select;

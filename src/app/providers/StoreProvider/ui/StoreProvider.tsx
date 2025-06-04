@@ -10,6 +10,7 @@ interface StoreProviderProps {
     initialState?: DeepPartial<StateSchema>;
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
+
 export const StoreProvider = (props: StoreProviderProps) => {
     const {
         children,
@@ -17,7 +18,7 @@ export const StoreProvider = (props: StoreProviderProps) => {
         asyncReducers,
     } = props;
 
-    const navigate = useNavigate;
+    const navigate = useNavigate();
 
     const store = createReduxStore(
         initialState as StateSchema,
@@ -31,5 +32,3 @@ export const StoreProvider = (props: StoreProviderProps) => {
         </Provider>
     );
 };
-
-export default StoreProvider;

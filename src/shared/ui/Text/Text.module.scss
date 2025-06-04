@@ -16,12 +16,12 @@
     }
 }
 
-.right {
-    text-align: right;
-}
-
 .left {
     text-align: left;
+}
+
+.right {
+    text-align: right;
 }
 
 .center {
@@ -38,7 +38,7 @@
     }
 }
 
-.size_xl {
+.size_l {
     .title {
         font: var(--font-xl);
     }

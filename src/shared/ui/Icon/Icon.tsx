@@ -2,14 +2,15 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import React, { memo } from 'react';
 import cls from './Icon.module.scss';
 
-
 interface IconProps {
-    className?: string,
+    className?: string;
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
-export const Icon = memo(({ className, Svg }: IconProps) => (
-    <Svg className={classNames(cls.Icon, {}, [className])} />
-));
+export const Icon = memo((props: IconProps) => {
+    const { className, Svg } = props;
 
-export default Icon;
+    return (
+        <Svg className={classNames(cls.Icon, {}, [className])} />
+    );
+});

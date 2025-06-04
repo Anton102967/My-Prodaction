@@ -1,22 +1,19 @@
-/* eslint-disable object-curly-spacing */
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import React, { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode, } from 'react';
 import cls from './Button.module.scss';
-
-/* eslint-disable object-curly-spacing */
 
 export enum ButtonTheme {
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
     OUTLINE_RED = 'outline_red',
-    BACKGROUD = 'background',
-    BACKGROUD_INVERTED = 'backgroundInverted',
+    BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
     M = 'size_m',
-    L= 'size_l',
+    L = 'size_l',
     XL = 'size_xl',
 }
 
@@ -29,7 +26,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     children?: ReactNode;
 }
 
-export const Button = memo ( (props:ButtonProps) => {
+export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,

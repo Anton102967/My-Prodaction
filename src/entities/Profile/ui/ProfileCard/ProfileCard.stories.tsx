@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ProfileCard } from 'entities/Profile';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import avatar from 'shared/assets/tests/Storybook Avatar.jpg';
-import { ProfileCard } from './ProfileCard';
+import avatar from 'shared/assets/tests/storybook.jpg';
 
 export default {
     title: 'entities/ProfileCard',
@@ -27,15 +27,15 @@ Primary.args = {
         city: 'asf',
         currency: Currency.USD,
         avatar,
-    }
+    },
 };
+
 export const withError = Template.bind({});
 withError.args = {
-    error: 'true'
+    error: 'true',
 };
-export const isLoading = Template.bind({});
-isLoading.args = {
+
+export const Loading = Template.bind({});
+Loading.args = {
     isLoading: true,
 };
-
-

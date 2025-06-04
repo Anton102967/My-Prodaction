@@ -19,17 +19,12 @@ export function useTheme(): UseThemeResult {
             newTheme = Theme.ORANGE;
             break;
         case Theme.ORANGE:
-            newTheme = Theme.GREEN;
-            break;
-        case Theme.GREEN:
             newTheme = Theme.DARK;
             break;
         default:
             newTheme = Theme.LIGHT;
         }
-
         setTheme?.(newTheme);
-        document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 

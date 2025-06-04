@@ -9,7 +9,6 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
         'prettier',
-
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -51,14 +50,15 @@ module.exports = {
                 ignoreAttribute: ['data-testid', 'to'],
             },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 130 }],
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'jsx-a11y/no-static-element-interactions': 'off',
-        'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'error',
-        'jsx-a11y/click-events-have-key-events': 'warn',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies,
         'no-param-reassign': 'off',
-        "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
         'no-undef': 'off',
+        'object-curly-spacing': ['error', 'always'],
+        'react/no-array-index-key': 'off',
     },
     globals: {
         __IS_DEV__: true,

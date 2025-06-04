@@ -5,7 +5,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({
+    paths, isDev, apiUrl, project,
+}: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -21,16 +23,14 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): w
             __PROJECT__: JSON.stringify(project),
         }),
     ];
-    
+
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin());
         plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new BundleAnalyzerPlugin({
-            analyzerMode: 'disabled', // сервер с BundleAnalyzerPlugin не запускается!
-            openAnalyzer: true
+            openAnalyzer: false,
         }));
     }
 
     return plugins;
 }
-

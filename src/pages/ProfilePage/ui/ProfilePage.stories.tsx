@@ -6,7 +6,6 @@ import ProfilePage from 'pages/ProfilePage/ui/ProfilePage';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import avatar from 'shared/assets/tests/Storybook Avatar.jpg';
 
 export default {
     title: 'pages/ProfilePage',
@@ -31,10 +30,9 @@ Normal.decorators = [StoreDecorator({
             first: 'asd',
             city: 'asf',
             currency: Currency.USD,
-            avatar,
-        }
-    }
-}, {})];
+        },
+    },
+})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -48,7 +46,6 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             first: 'asd',
             city: 'asf',
             currency: Currency.USD,
-            avatar,
-        }
-    }
-}, {})];
+        },
+    },
+})];

@@ -4,9 +4,10 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getSidebarItem } from 'widgets/Sidebar/modal/selectors/getSidebarItem';
-import SidebarItem from '../Sidebaritem/SidebarItem';
+import { getUserAuthData } from 'entities/User';
 import cls from './Sidebar.module.scss';
+import { SidebarItemsList } from '../../model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
     className?: string;
@@ -14,19 +15,18 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
-    const sidebarItemList = useSelector(getSidebarItem);
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
 
-    const itemList = useMemo(() => (sidebarItemList.map((item) => (
+    const itemsList = useMemo(() => SidebarItemsList.map((item) => (
         <SidebarItem
             item={item}
             collapsed={collapsed}
             key={item.path}
         />
-    ))), [collapsed, sidebarItemList]);
+    )), [collapsed]);
 
     return (
         <div
@@ -36,15 +36,15 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
-                className={cls.collapsedBtn}
-                theme={ButtonTheme.BACKGROUD_INVERTED}
+                className={cls.collapseBtn}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
                 size={ButtonSize.L}
                 square
             >
                 {collapsed ? '>' : '<'}
             </Button>
             <div className={cls.items}>
-                {itemList}
+                {itemsList}
             </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
