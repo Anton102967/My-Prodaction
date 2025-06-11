@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { CommentCard } from './CommentCard';
 
@@ -11,7 +11,6 @@ export default {
     },
 } as ComponentMeta<typeof CommentCard>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
 export const Normal = Template.bind({});

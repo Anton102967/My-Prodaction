@@ -10,7 +10,6 @@ export default {
     },
 } as ComponentMeta<typeof Input>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Primary = Template.bind({});

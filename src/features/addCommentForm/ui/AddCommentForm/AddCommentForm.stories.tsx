@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { action } from '@storybook/addon-actions';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -13,7 +13,6 @@ export default {
     },
 } as ComponentMeta<typeof AddCommentForm>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentForm {...args} />;
 
 export const Normal = Template.bind({});

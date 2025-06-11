@@ -8,7 +8,6 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
-        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -57,7 +56,6 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies,
         'no-param-reassign': 'off',
         'no-undef': 'off',
-        'object-curly-spacing': ['error', 'always'],
         'react/no-array-index-key': 'off',
     },
     globals: {

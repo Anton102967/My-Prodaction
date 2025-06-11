@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
@@ -14,7 +14,6 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 const article: Article = {
@@ -27,9 +26,7 @@ const article: Article = {
     type: [ArticleType.IT],
     user: {
         id: '1',
-        username: "Anton Bulba",
-        avatar: "https://avatars.mds.yandex.net/get-zen_doc/3413519/" +
-            "pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+        username: 'Ulbi tv',
     },
     blocks: [
         {

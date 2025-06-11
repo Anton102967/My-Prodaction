@@ -1,5 +1,7 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import React, { InputHTMLAttributes, memo, useEffect, useRef, useState, } from 'react';
+import React, {
+    InputHTMLAttributes, memo, useEffect, useRef, useState,
+} from 'react';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
@@ -75,7 +77,6 @@ export const Input = memo((props: InputProps) => {
                     onBlur={onBlur}
                     onSelect={onSelect}
                     readOnly={readonly}
-                    /* eslint-disable-next-line react/jsx-props-no-spreading */
                     {...otherProps}
                 />
                 {isCaretVisible && (

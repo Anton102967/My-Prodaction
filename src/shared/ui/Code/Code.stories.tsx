@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Code } from './Code';
 
@@ -11,7 +11,6 @@ export default {
     },
 } as ComponentMeta<typeof Code>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Normal = Template.bind({});

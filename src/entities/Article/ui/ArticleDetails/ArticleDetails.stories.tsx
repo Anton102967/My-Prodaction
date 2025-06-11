@@ -7,14 +7,13 @@ import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/arti
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof ArticleDetails>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
 const article: Article = {
@@ -27,7 +26,7 @@ const article: Article = {
     type: [ArticleType.IT],
     user: {
         id: '1',
-        username: "Anton Bulba",
+        username: 'Ulbi tv',
     },
     blocks: [
         {

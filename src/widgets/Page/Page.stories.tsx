@@ -1,5 +1,6 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { Page } from './Page';
 
 export default {
@@ -10,7 +11,6 @@ export default {
     },
 } as ComponentMeta<typeof Page>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const Normal = Template.bind({});

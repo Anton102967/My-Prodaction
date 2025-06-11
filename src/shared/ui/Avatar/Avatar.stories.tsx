@@ -11,7 +11,6 @@ export default {
     },
 } as ComponentMeta<typeof Avatar>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Primary = Template.bind({});

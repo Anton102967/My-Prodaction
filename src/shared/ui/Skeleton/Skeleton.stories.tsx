@@ -13,7 +13,6 @@ export default {
     },
 } as ComponentMeta<typeof Skeleton>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
 
 export const Normal = Template.bind({});
