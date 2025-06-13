@@ -136,7 +136,7 @@
       "id": "4",
       "title": "Scala news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://yt3.googleusercontent.com/nfbui_pJyhuZGorHlwRdkjDidN14_RMBdfkRNoNBB-xUZISKg2nHnp4oRpVmuODRjwUB955rrg=s900-c-k-c0x00ffffff-no-rj",
+      "img": "https://pbs.twimg.com/profile_images/1029396749960376320/DrA0Kzhr_400x400.jpg",
       "views": 10222,
       "createdAt": "24.01.2022",
       "userId": "1",
@@ -595,6 +595,18 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "Привет",
+      "id": "uOmLA1L"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "hi",
+      "id": "ffUST9H"
     }
   ],
   "users": [
