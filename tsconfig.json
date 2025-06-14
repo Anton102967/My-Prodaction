@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "noImplicitAny": false,              // ✅ Разрешить неявный any
-    "strict": false,                     // ✅ Отключить все строгие проверки
+    "noImplicitAny": false,
+    "strict": false,
     "module": "ESNext",
     "target": "es5",
     "jsx": "react-jsx",
