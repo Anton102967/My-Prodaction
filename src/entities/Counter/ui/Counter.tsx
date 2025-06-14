@@ -30,7 +30,7 @@ export const Counter = () => {
                 data-testid="decrement-btn"
                 onClick={decrement}
             >
-                {t('decrement')}
+                {t('decrementw')}
             </Button>
         </div>
     );
