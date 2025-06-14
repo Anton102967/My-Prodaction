@@ -11,6 +11,7 @@
   },
   "PROFILE PAGE": "PROFILE PAGE",
   "decrement": "decrement",
+  "decrementw": "decrementw",
   "increment": "increment",
   "throw error": "throw error",
   "Айти": "Айти",
@@ -91,6 +92,5 @@
   "названию": "названию",
   "по": "по",
   "просмотрам": "просмотрам",
-  "убыванию": "убыванию",
-  "decrementw": "decrementw"
+  "убыванию": "убыванию"
 }
