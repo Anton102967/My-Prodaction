@@ -1,26 +1,25 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { getUserAuthData } from 'entities/User';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
 import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article';
-import { getArticleComments } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
-import cls from './AricleDetailsPageHeader.module.scss';
+import cls from './ArticleDetailsPageHeader.module.scss';
 
-interface AricleDetailsPageHeaderProps {
+interface ArticleDetailsPageHeaderProps {
     className?: string;
 }
 
-export const AricleDetailsPageHeader = memo((props: AricleDetailsPageHeaderProps) => {
+export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const navigate = useNavigate();
-    const article = useSelector(getArticleDetailsData);
     const canEdit = useSelector(getCanEditArticle);
+    const article = useSelector(getArticleDetailsData);
 
     const onBackToList = useCallback(() => {
         navigate(RoutePath.articles);
@@ -31,14 +30,11 @@ export const AricleDetailsPageHeader = memo((props: AricleDetailsPageHeaderProps
     }, [article?.id, navigate]);
 
     return (
-        <div className={classNames(cls.AricleDetailsPageHeader, {}, [className])}>
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onBackToList}
-            >
+        <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+            <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
-            { canEdit && (
+            {canEdit && (
                 <Button
                     className={cls.editBtn}
                     theme={ButtonTheme.OUTLINE}

@@ -1,11 +1,11 @@
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { combineReducers } from '@reduxjs/toolkit';
+import { ArticleDetailsPageSchema } from '../types';
 import {
-    articleDetailsPageRecommendaionsReducer,
-} from 'pages/ArticleDetailsPage/model/slices/articleDetailsPageRecommendationsSlice';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
+    articleDetailsPageRecommendationsReducer,
+} from './articleDetailsPageRecommendationsSlice';
+import { articleDetailsCommentsReducer } from './articleDetailsCommentsSlice';
 
 export const articleDetailsPageReducer = combineReducers<ArticleDetailsPageSchema>({
-    recommendations: articleDetailsPageRecommendaionsReducer,
+    recommendations: articleDetailsPageRecommendationsReducer,
     comments: articleDetailsCommentsReducer,
 });

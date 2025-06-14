@@ -62,7 +62,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             to={RoutePath.article_details + article.id}
                         >
                             <Button theme={ButtonTheme.OUTLINE}>
-                                {t('Читать далеe')}
+                                {t('Читать далее...')}
                             </Button>
                         </AppLink>
                         {views}

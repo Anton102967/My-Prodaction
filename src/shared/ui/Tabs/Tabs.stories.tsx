@@ -1,5 +1,6 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { action } from '@storybook/addon-actions';
 import { Tabs } from './Tabs';
 
@@ -11,7 +12,6 @@ export default {
     },
 } as ComponentMeta<typeof Tabs>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
 
 export const Normal = Template.bind({});

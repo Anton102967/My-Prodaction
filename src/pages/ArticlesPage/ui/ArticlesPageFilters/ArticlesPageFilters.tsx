@@ -1,33 +1,33 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { memo, useCallback, useMemo } from 'react';
 import {
-    getArticlesPageOrder,
-    getArticlesPageSearch,
-    getArticlesPageSort,
-    getArticlesPageType,
-    getArticlesPageView,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-    ArcicleSortSelectors, ArticleSortField, ArticleTypeTabs, ArticleView, ArticleViewSelector,
+    ArticleSortField, ArticleSortSelector, ArticleTypeTabs, ArticleView, ArticleViewSelector,
 } from 'entities/Article';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Select } from 'shared/ui/Select/Select';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleType } from 'entities/Article/model/types/article';
-import cls from './ArticlesPagesFilters.module.scss';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import cls from './ArticlesPageFilters.module.scss';
+import {
+    getArticlesPageOrder, getArticlesPageSearch,
+    getArticlesPageSort, getArticlesPageType,
+    getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
-interface ArticlesPagesFiltersProps {
+interface ArticlesPageFiltersProps {
     className?: string;
 }
 
-export const ArticlesPagesFilters = memo(({ className }: ArticlesPagesFiltersProps) => {
+export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
+    const { className } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const view = useSelector(getArticlesPageView);
@@ -49,14 +49,14 @@ export const ArticlesPagesFilters = memo(({ className }: ArticlesPagesFiltersPro
     const onChangeSort = useCallback((newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
         dispatch(articlesPageActions.setPage(1));
-        debouncedFetchData();
-    }, [dispatch, debouncedFetchData]);
+        fetchData();
+    }, [dispatch, fetchData]);
 
     const onChangeOrder = useCallback((newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
         dispatch(articlesPageActions.setPage(1));
-        debouncedFetchData();
-    }, [dispatch, debouncedFetchData]);
+        fetchData();
+    }, [dispatch, fetchData]);
 
     const onChangeSearch = useCallback((search: string) => {
         dispatch(articlesPageActions.setSearch(search));
@@ -65,19 +65,19 @@ export const ArticlesPagesFilters = memo(({ className }: ArticlesPagesFiltersPro
     }, [dispatch, debouncedFetchData]);
 
     const onChangeType = useCallback((value: ArticleType) => {
-        dispatch(articlesPageActions.setType(value as ArticleType));
+        dispatch(articlesPageActions.setType(value));
         dispatch(articlesPageActions.setPage(1));
-        debouncedFetchData();
-    }, [dispatch, debouncedFetchData]);
+        fetchData();
+    }, [dispatch, fetchData]);
 
     return (
-        <div className={classNames(cls.ArticlesPagesFilters, {}, [className])}>
+        <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
             <div className={cls.sortWrapper}>
-                <ArcicleSortSelectors
-                    sort={sort}
+                <ArticleSortSelector
                     order={order}
-                    onChangeSort={onChangeSort}
+                    sort={sort}
                     onChangeOrder={onChangeOrder}
+                    onChangeSort={onChangeSort}
                 />
                 <ArticleViewSelector
                     view={view}
@@ -94,7 +94,7 @@ export const ArticlesPagesFilters = memo(({ className }: ArticlesPagesFiltersPro
             <ArticleTypeTabs
                 value={type}
                 onChangeType={onChangeType}
-                className={cls.tab}
+                className={cls.tabs}
             />
         </div>
     );

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ArticleSortField, ArticleType } from 'entities/Article';
 import { SortOrder } from 'shared/types';
-import { ArticleSortField } from 'entities/Article';
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
@@ -17,18 +17,22 @@ export const initArticlesPage = createAsyncThunk<
             const inited = getArticlesPageInited(getState());
 
             if (!inited) {
-                const orderFromURL = searchParams.get('order') as SortOrder;
-                const sortFromURL = searchParams.get('sort') as ArticleSortField;
-                const searchFromURL = searchParams.get('search');
+                const orderFromUrl = searchParams.get('order') as SortOrder;
+                const sortFromUrl = searchParams.get('sort') as ArticleSortField;
+                const searchFromUrl = searchParams.get('search');
+                const typeFromUrl = searchParams.get('type') as ArticleType;
 
-                if (orderFromURL) {
-                    dispatch(articlesPageActions.setOrder(orderFromURL));
+                if (orderFromUrl) {
+                    dispatch(articlesPageActions.setOrder(orderFromUrl));
                 }
-                if (sortFromURL) {
-                    dispatch(articlesPageActions.setSort(sortFromURL));
+                if (sortFromUrl) {
+                    dispatch(articlesPageActions.setSort(sortFromUrl));
                 }
-                if (searchFromURL) {
-                    dispatch(articlesPageActions.setSearch(searchFromURL));
+                if (searchFromUrl) {
+                    dispatch(articlesPageActions.setSearch(searchFromUrl));
+                }
+                if (typeFromUrl) {
+                    dispatch(articlesPageActions.setType(typeFromUrl));
                 }
 
                 dispatch(articlesPageActions.initState());
