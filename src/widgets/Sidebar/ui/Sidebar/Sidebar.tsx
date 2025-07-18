@@ -5,8 +5,8 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
+import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
-import { SidebarItem } from '../Sidebaritem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
 interface SidebarProps {
