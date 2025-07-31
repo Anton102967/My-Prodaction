@@ -13,8 +13,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
         build: '', // Storybook не использует
         html: '', // Storybook не использует
         src: path.resolve(root, 'src'),
-        locales: path.resolve(root, 'public', 'locales'),
-        buildLocales: path.resolve(root, 'build', 'locales'),
+        locales: '',
+        buildLocales: '',
     };
 
     // Добавляем алиас src в modules для абсолютных импортов
