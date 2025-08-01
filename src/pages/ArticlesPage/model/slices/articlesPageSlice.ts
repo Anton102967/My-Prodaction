@@ -59,6 +59,13 @@ const articlesPageSlice = createSlice({
             state.limit = view === ArticleView.BIG ? 4 : 9;
             state._inited = true;
         },
+        clearState: (state) => {
+            state.ids = [];
+            state.entities = {};
+            state.page = 1;
+            state.hasMore = true;
+            state._inited = false;
+        },
     },
     extraReducers: (builder) => {
         builder

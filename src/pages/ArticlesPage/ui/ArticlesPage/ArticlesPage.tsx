@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { memo, useCallback, useEffect } from 'react';
+import { ArticleList } from 'entities/Article';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
@@ -44,6 +44,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
     });
+
+    useEffect(() => {
+        return () => {
+            dispatch(articlesPageActions.clearState());
+        };
+    }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
