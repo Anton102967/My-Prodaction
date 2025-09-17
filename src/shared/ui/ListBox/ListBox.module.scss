@@ -16,10 +16,6 @@
     box-shadow: 4px 4px 8px var(--listbox-bg);
 }
 
-.optionsTop {
-    bottom: 100%;
-}
-
 .item {
     padding: 10px 20px;
 }
@@ -30,4 +26,25 @@
 
 .disabled {
     opacity: 0.7;
+}
+
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
+
+
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    right: 0;
 }
