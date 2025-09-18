@@ -2,11 +2,11 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import ArticlesPage from './ArticlesPage';
+import { EditableProfileCard } from './EditableProfileCard';
 
 export default {
-    title: 'pages/ArticleEditPage/Article/ArticlesPage',
-    component: ArticlesPage,
+    title: 'features/editableProfileCard/EditableProfileCard',
+    component: EditableProfileCard,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -15,9 +15,11 @@ export default {
             user: { authData: { id: '1', username: 'admin' } },
         }),
     ],
-} as ComponentMeta<typeof ArticlesPage>;
+} as ComponentMeta<typeof EditableProfileCard>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+
+};

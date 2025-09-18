@@ -1,12 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import ArticlesPage from './ArticlesPage';
+import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {
-    title: 'pages/ArticleEditPage/Article/ArticlesPage',
-    component: ArticlesPage,
+    title: 'pages/ArticleEditPage/ArticleDetailsComments',
+    component: ArticleDetailsComments,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -15,9 +14,14 @@ export default {
             user: { authData: { id: '1', username: 'admin' } },
         }),
     ],
-} as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+} as ComponentMeta<typeof ArticleDetailsComments>;
+
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+// @ts-ignore
+    id: 1,
+};

@@ -2,11 +2,11 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import ArticlesPage from './ArticlesPage';
+import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {
-    title: 'pages/ArticleEditPage/Article/ArticlesPage',
-    component: ArticlesPage,
+    title: 'features/ArticleRecommendationsList',
+    component: ArticleRecommendationsList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -15,9 +15,9 @@ export default {
             user: { authData: { id: '1', username: 'admin' } },
         }),
     ],
-} as ComponentMeta<typeof ArticlesPage>;
+} as ComponentMeta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

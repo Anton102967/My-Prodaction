@@ -1,12 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import ArticlesPage from './ArticlesPage';
+import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {
-    title: 'pages/ArticleEditPage/Article/ArticlesPage',
-    component: ArticlesPage,
+    title: 'pages/ArticleEditPage/ArticleInfiniteList',
+    component: ArticleInfiniteList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -15,9 +14,10 @@ export default {
             user: { authData: { id: '1', username: 'admin' } },
         }),
     ],
-} as ComponentMeta<typeof ArticlesPage>;
+} as ComponentMeta<typeof ArticleInfiniteList>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
