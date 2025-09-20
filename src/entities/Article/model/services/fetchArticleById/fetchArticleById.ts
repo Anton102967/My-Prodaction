@@ -1,6 +1,6 @@
-import {createAsyncThunk} from '@reduxjs/toolkit';
-import {ThunkConfig} from 'app/providers/StoreProvider';
-import {Article} from '../../types/article';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { ThunkConfig } from 'app/providers/StoreProvider';
+import { Article } from '../../types/article';
 
 export const fetchArticleById = createAsyncThunk<
     Article,
@@ -22,7 +22,7 @@ export const fetchArticleById = createAsyncThunk<
                     throw new Error();
                 }
 
-                if(!articleId) {
+                if (!articleId) {
                     throw new Error('Отсутствует Id');
                 }
 
