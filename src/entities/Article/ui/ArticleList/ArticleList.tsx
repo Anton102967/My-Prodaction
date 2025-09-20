@@ -1,6 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import {
+    HTMLAttributeAnchorTarget, memo, useEffect, useState,
+} from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
@@ -34,6 +36,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
         virtualized = true,
     } = props;
     const { t } = useTranslation();
+
+    const [scrollElement, setScrollElement] = useState<Element | null>(null);
+
+    useEffect(() => {
+        setScrollElement(document.getElementById(PAGE_ID));
+    }, []);
 
     const isBig = view === ArticleView.BIG;
 
@@ -77,11 +85,24 @@ export const ArticleList = memo((props: ArticleListProps) => {
             </div>
         );
     };
-
+    if (!virtualized || !scrollElement) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                {articles.map((item) => (
+                    <ArticleListItem
+                        article={item}
+                        view={view}
+                        target={target}
+                        key={item.id}
+                        className={cls.card}
+                    />
+                ))}
+                {isLoading && getSkeletons(view)}
+            </div>
+        );
+    }
     return (
-        <WindowScroller
-            scrollElement={document.getElementById(PAGE_ID) as Element}
-        >
+        <WindowScroller scrollElement={scrollElement}>
             {({
                 height,
                 width,

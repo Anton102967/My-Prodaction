@@ -2,19 +2,19 @@ import React from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import {Theme} from 'app/providers/ThemeProvider';
-import MainPage from './MainPage';
 import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import AdminPanelPage from "pages/AdminPanelPage/ui/AdminPanelPage";
 
 export default {
-    title: 'pages/MainPage',
-    component: MainPage,
+    title: 'pages/AdminPanelPage',
+    component: AdminPanelPage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     decorators: [StoreDecorator({})],
-} as ComponentMeta<typeof MainPage>;
+} as ComponentMeta<typeof AdminPanelPage>;
 
-const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
+const Template: ComponentStory<typeof AdminPanelPage> = () => <AdminPanelPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

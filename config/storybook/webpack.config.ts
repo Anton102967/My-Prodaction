@@ -1,7 +1,7 @@
-import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
+import webpack, {DefinePlugin, RuleSetRule} from 'webpack';
 import path from 'path';
-import { buildCssLoader } from '../build/loaders/buildCssLoader';
-import { BuildPaths } from '../build/types/config';
+import {buildCssLoader} from '../build/loaders/buildCssLoader';
+import {BuildPaths} from '../build/types/config';
 
 export default ({ config }: { config: webpack.Configuration }) => {
     // Корень репозитория — подняться из config/storybook/ к корню проекта
@@ -43,7 +43,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config!.plugins!.push(
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(true),
-            __API__: JSON.stringify(''),
+            __API__: JSON.stringify('https://testapi.ru'),
             __PROJECT__: JSON.stringify('storybook'),
         }),
     );
