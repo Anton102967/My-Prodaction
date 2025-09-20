@@ -52,6 +52,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={cls.block}
                 />
             );
+
         case ArticleBlockType.IMAGE:
             return (
                 <ArticleImageBlockComponent
@@ -60,6 +61,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={cls.block}
                 />
             );
+
         case ArticleBlockType.TEXT:
             return (
                 <ArticleTextBlockComponent
@@ -68,6 +70,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     block={block}
                 />
             );
+
         default:
             return null;
         }
