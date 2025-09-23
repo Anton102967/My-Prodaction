@@ -3,8 +3,7 @@ import React, {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
-import { useDrag } from '@use-gesture/react';
-import { a, config, useSpring } from '@react-spring/web';
+import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -19,7 +18,7 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-export const Drawer = memo((props: DrawerProps) => {
+export const DrawerContext = memo((props: DrawerProps) => {
     const {
         className,
         children,
@@ -28,7 +27,8 @@ export const Drawer = memo((props: DrawerProps) => {
         lazy,
     } = props;
 
-    const [{ y }, api] = useSpring(() => ({ y: height }));
+    const { Spring, Gesture } = useAnimationLibs();
+    const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
     const { theme } = useTheme();
 
     const openDrawer = useCallback(() => {
@@ -40,11 +40,11 @@ export const Drawer = memo((props: DrawerProps) => {
             api.start({
                 y: height,
                 immediate: false,
-                config: { ...config.stiff, velocity },
+                config: { ...Spring.config.stiff, velocity },
                 onResolve: onClose,
             });
         },
-        [api, onClose],
+        [Spring.config.stiff, api, onClose],
     );
 
     useEffect(() => {
@@ -55,7 +55,7 @@ export const Drawer = memo((props: DrawerProps) => {
         }
     }, [isOpen, openDrawer, close]);
 
-    const bind = useDrag(
+    const bind = Gesture.useDrag(
         ({
             last,
             velocity: [, vy],
@@ -98,8 +98,8 @@ export const Drawer = memo((props: DrawerProps) => {
             <div
                 className={classNames(cls.Drawer, mods, [className, theme, 'app_drawer'])}
             >
-                <Overlay onClick={() => close()} />
-                <a.div
+                {isOpen && <Overlay onClick={() => close()} />}
+                <Spring.a.div
                     className={cls.sheet}
                     {...bind()}
                     style={{
@@ -109,8 +109,17 @@ export const Drawer = memo((props: DrawerProps) => {
                     }}
                 >
                     {children}
-                </a.div>
+                </Spring.a.div>
             </div>
         </Portal>
     );
+});
+
+export const Drawer = memo((props: DrawerProps) => {
+    const { isLoaded } = useAnimationLibs();
+    if (!isLoaded) {
+        return null;
+    }
+
+    return <DrawerContext {...props} />;
 });
