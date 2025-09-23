@@ -45,9 +45,7 @@ export const AnimationProvider = ({ children }: {children: ReactNode}) => {
     }), [isLoaded]);
 
     return (
-        <AnimationContext.Provider
-            value={value}
-        >
+        <AnimationContext.Provider value={value}>
             {children}
         </AnimationContext.Provider>
     );
