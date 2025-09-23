@@ -1,9 +1,12 @@
 .Drawer {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  z-index: 1001; // выше Overlay
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
 }
 
 .opened {
@@ -17,14 +20,14 @@
 }
 
 .sheet {
-  z-index: 1002; // самый верх — сам контент
-  position: fixed;
-  left: 2vw;
-  height: calc(100vh + 100px);
-  width: 96vw;
-  border-radius: 12px 12px 0 0;
-  background: var(--bg-color);
-  touch-action: none;
-  padding: 15px;
+    z-index: 100;
+    position: fixed;
+    left: 2vw;
+    height: calc(100vh + 100px);
+    width: 96vw;
+    border-radius: 12px 12px 0 0;
+    background: var(--bg-color);
+    touch-action: none;
+    padding: 15px;
 }
 
