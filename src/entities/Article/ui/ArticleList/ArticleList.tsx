@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
     HTMLAttributeAnchorTarget, memo, useEffect, useState,
 } from 'react';
-import { Text, TextSize } from 'shared/ui/Text/Text';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
-import { PAGE_ID } from 'widgets/Page/Page';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { PAGE_ID } from '@/widgets/Page/Page';
 import { ArticleView } from '../../model/const/constArticle';
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

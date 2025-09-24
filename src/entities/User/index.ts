@@ -16,4 +16,4 @@ export type {
     UserSchema,
     User,
 } from './model/types/user';
-export { UserRole } from 'entities/User/model/const/userConst';
+export { UserRole } from '@/entities/User/model/const/userConst';

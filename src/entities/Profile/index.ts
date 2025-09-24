@@ -5,15 +5,15 @@ export type {
 export {
     profileActions,
     profileReducer,
-} from 'features/editableProfileCard/model/slice/profileSlice';
+} from '@/features/editableProfileCard/model/slice/profileSlice';
 
 export {
     fetchProfileData,
-} from 'features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
+} from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
 
 export {
     updateProfileData,
-} from 'features/editableProfileCard/model/services/updateProfileData/updateProfileData';
+} from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
 
 export {
     ProfileCard,
