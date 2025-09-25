@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -19,11 +19,19 @@ export const ArticleRating = memo((props: ArticleRatingProps) => {
     } = props;
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
+    const userId = userData?.id;
 
-    const { data, isLoading } = useGetArticleRating({
-        articleId,
-        userId: userData?.id ?? '',
-    });
+    const { data, isLoading } = useGetArticleRating(
+        {
+            articleId,
+            userId: userId ?? '',
+        },
+        {
+            skip: !userId,
+        },
+    );
+
+    const rating = useMemo(() => data?.[0], [data]);
 
     console.log(data);
 
@@ -37,6 +45,7 @@ export const ArticleRating = memo((props: ArticleRatingProps) => {
             title={t('Оцените статью')}
             feedbackTitle={t('Оцените свой отзыв о статье, это поможет улучшить качество')}
             hasFeedback
+            rate={rating?.rate}
         />
     );
 });
