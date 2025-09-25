@@ -47,7 +47,12 @@ export function Dropdown(props: DropdownProps) {
 
                     if (item.href) {
                         return (
-                            <Menu.Item as={AppLink} to={item.href} disabled={item.disabled} key={`dropdown-link-${index}`}>
+                            <Menu.Item
+                                as={AppLink}
+                                to={item.href}
+                                disabled={item.disabled}
+                                key={`dropdown-link-${index}`}
+                            >
                                 {content}
                             </Menu.Item>
                         );
