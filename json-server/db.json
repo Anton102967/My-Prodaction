@@ -654,21 +654,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXOPKGYKGSfvk79-RlgfEbBKPQHv-XB8jh0Q&s"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
@@ -738,6 +744,105 @@
       "rate": 3,
       "feedback": "",
       "id": "bcPnbbZ"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 5,
+      "feedback": "",
+      "id": "UoWzL5A"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 0,
+      "id": "DaAWpKY"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 4,
+      "feedback": "",
+      "id": "psvAQ5p"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 4,
+      "id": "tk5Rd1h"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 0,
+      "id": "YYmf1pj"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 0,
+      "id": "xMXenLm"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "id": "Mu2Y_N0"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 0,
+      "id": "NojK50W"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 4,
+      "feedback": "Норм",
+      "id": "Sc0rSrN"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 4,
+      "id": "X10aKAw"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 0,
+      "id": "38gKE_f"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 0,
+      "id": "XftCfAi"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 0,
+      "id": "0WD8TX5"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 0,
+      "id": "f1iS3yM"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 0,
+      "id": "Kt9ABJa"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 0,
+      "id": "qZboGYC"
     }
   ],
   "profile-ratings": [
