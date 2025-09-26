@@ -20,6 +20,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
     // Добавляем алиас src в modules для абсолютных импортов
     config!.resolve!.modules!.push(paths.src);
     config!.resolve!.extensions!.push('.ts', '.tsx');
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+    };
 
     // Исправляем работу со svg — сначала исключаем из общего rule
     // @ts-ignore
