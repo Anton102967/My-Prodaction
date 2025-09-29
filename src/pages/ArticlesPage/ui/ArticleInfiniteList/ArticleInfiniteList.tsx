@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entities/Article';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/@/shared/ui/Text/Text';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
