@@ -15,3 +15,4 @@ export {
     ArticleView, ArticleType, ArticleSortField, ArticleBlockType,
 }
     from './model/const/constArticle';
+export { PAGE_ID } from '@/entities/Article/model/const/constPage';

@@ -5,12 +5,12 @@ import {
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { PAGE_ID } from '@/widgets/Page';
 import { ArticleView } from '../../model/const/constArticle';
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
+import { PAGE_ID } from '../../model/const/constPage';
 
 interface ArticleListProps {
     className?: string;
