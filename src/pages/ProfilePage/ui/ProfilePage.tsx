@@ -2,9 +2,9 @@ import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
-import { VStack } from '@/@/shared/ui/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/Stack';
 import { EditableProfileCard } from '@/features/editableProfileCard';
-import { Text } from '@/@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 
 interface ProfilePageProps {
     className?: string;
