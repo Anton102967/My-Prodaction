@@ -17,7 +17,7 @@ function isAbsolute(value: string) {
     return layers.some((layer) => value.startsWith(layer));
 }
 
-// создаём index.ts для каждой папки в shared/ui
+// создаём sort.ts для каждой папки в shared/ui
 componentsDirs?.forEach((directory) => {
     const indexFilePath = `${directory.getPath()}/index.ts`;
     const indexFile = directory.getSourceFile(indexFilePath);
