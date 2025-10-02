@@ -27,6 +27,8 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run test:ui:report` - Генерация полного отчета для скриншотных тестов
 - `npm run test:ui:json` - Генерация json отчета для скриншотных тестов
 - `npm run test:ui:html` - Генерация HTML отчета для скриншотных тестов
+- После генерации отчета локально HTML можно открыть по пути `.loki/report.html`
+- В CI пайплайне папка `.loki` автоматически переносится в `reports/.loki`, чтобы ссылка на отчет в `reports/index.html` корректно работала на GitHub Pages
 - `npm run storybook` - запуск Storybook
 - `npm run storybook:build` - Сборка storybook билда
 - `npm run prepare` - прекоммит хуки
