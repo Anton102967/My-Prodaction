@@ -1,8 +1,9 @@
-import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
+import type { Configuration, RuleSetRule } from 'webpack';
+import { DefinePlugin } from 'webpack';
 import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
-export default {
+const config = {
     stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
         '@storybook/addon-links',
@@ -13,52 +14,80 @@ export default {
             },
         },
         '@storybook/addon-interactions',
-        'storybook-addon-mock',
+        'storybook-addon-mock/register',
         'storybook-addon-themes',
     ],
     framework: '@storybook/react',
     core: {
         builder: 'webpack5',
     },
-    webpackFinal: async (config: Configuration) => {
-        const paths = {
-            build: '',
-            html: '',
-            entry: '',
-            src: path.resolve(__dirname, '..', '..', 'src'),
-            locales: '',
-            buildLocales: '',
-        };
-        config!.resolve!.modules!.push(paths.src);
-        config!.resolve!.extensions!.push('.ts', '.tsx');
-        config!.resolve!.alias = {
-            ...config!.resolve!.alias,
-            '@': paths.src,
+    webpackFinal: async (storybookConfig: Configuration) => {
+        const srcPath = path.resolve(__dirname, '..', '..', 'src');
+
+        if (!storybookConfig.resolve) {
+            storybookConfig.resolve = {};
+        }
+
+        storybookConfig.resolve.modules = storybookConfig.resolve.modules || [];
+        storybookConfig.resolve.modules.push(srcPath);
+
+        storybookConfig.resolve.extensions = storybookConfig.resolve.extensions || [];
+        storybookConfig.resolve.extensions.push('.ts', '.tsx');
+
+        storybookConfig.resolve.alias = {
+            ...(storybookConfig.resolve.alias || {}),
+            '@': srcPath,
         };
 
-        // @ts-ignore
-        config!.module!.rules = config!.module!.rules!.map((rule) => {
-            if (typeof rule === 'string') return rule; // оставляем "..."
-            if (/svg/.test((rule as RuleSetRule).test as string)) {
-                return { ...(rule as RuleSetRule), exclude: /\.svg$/i };
-            }
-            return rule;
-        });
+        if (!storybookConfig.module) {
+            storybookConfig.module = { rules: [] };
+        }
 
-        config!.module!.rules.push({
+        storybookConfig.module.rules = (storybookConfig.module.rules || []).map(
+            (rule) => {
+                if (typeof rule === 'string') {
+                    return rule;
+                }
+
+                const ruleWithTest = rule as RuleSetRule;
+                const { test } = ruleWithTest;
+
+                if (test && test instanceof RegExp && test.test('.svg')) {
+                    return {
+                        ...ruleWithTest,
+                        exclude: /\.svg$/i,
+                    };
+                }
+
+                if (typeof test === 'string' && /svg/.test(test)) {
+                    return {
+                        ...ruleWithTest,
+                        exclude: /\.svg$/i,
+                    };
+                }
+
+                return rule;
+            },
+        );
+
+        storybookConfig.module.rules.push({
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
-        config!.module!.rules.push(buildCssLoader(true));
 
-        config!.plugins!.push(
+        storybookConfig.module.rules.push(buildCssLoader(true));
+
+        storybookConfig.plugins = storybookConfig.plugins || [];
+        storybookConfig.plugins.push(
             new DefinePlugin({
                 __IS_DEV__: JSON.stringify(true),
                 __API__: JSON.stringify('https://testapi.ru'),
                 __PROJECT__: JSON.stringify('storybook'),
             }),
         );
-        // Return the altered config
-        return config;
+
+        return storybookConfig;
     },
 };
+
+export default config;
