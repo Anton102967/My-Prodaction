@@ -839,6 +839,19 @@
       ],
       "blocks": [],
       "id": "BB5bNf_"
+    },
+    {
+      "title": "Testing Article!",
+      "subtitle": "Экономика",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrJ9OQRwwIevgdIgaUOidN8spC7_RaSg1Vew&s",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "ECONOMICS"
+      ],
+      "blocks": [],
+      "id": "4giDxuS"
     }
   ],
   "comments": [
@@ -958,6 +971,12 @@
     },
     {
       "id": "lTQu_5R"
+    },
+    {
+      "articleId": "4giDxuS",
+      "userId": "4",
+      "text": "text",
+      "id": "HNZJqBV"
     }
   ],
   "users": [

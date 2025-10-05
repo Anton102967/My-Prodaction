@@ -17,16 +17,24 @@ export const createArticleComments = (commentsId?: string, text = 'test comment'
 };
 
 export const removeArticleComments = (articleId: string) => {
-    return cy.request({
+    if (!articleId) {
+        return cy.wrap(null);
+    }
+
+    return cy.request<Array<{ id: string }>>({
         method: 'GET',
-        url: `http://localhost:8000/comments?articleId=${articleId}`,
+        url: 'http://localhost:8000/comments',
         headers: { authorization: 'hi' },
-    }).then((response) => {
-        const comments = response.body as Array<{ id: string }>;
-        comments.forEach((c) => {
+        qs: { articleId },
+    }).then(({ body }) => {
+        if (!Array.isArray(body) || body.length === 0) {
+            return;
+        }
+
+        body.forEach((comment) => {
             cy.request({
                 method: 'DELETE',
-                url: `http://localhost:8000/comments/${c.id}`,
+                url: `http://localhost:8000/comments/${comment.id}`,
                 headers: { authorization: 'hi' },
                 failOnStatusCode: false,
             });
