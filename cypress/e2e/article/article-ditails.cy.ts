@@ -28,6 +28,7 @@ describe('Пользователь заходит на страницу стат
         cy.getByTestId('AddCommentForm').scrollIntoView();
         cy.addComment('text');
         cy.getByTestId('CommentCard.Content').should('have.length', 1);
+        cy.removeArticleComments(currentArticleId);
     });
     it('И ставит оценку', () => {
         cy.getByTestId('ArticleDetails.Info');
