@@ -88,7 +88,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
     };
     if (!virtualized || !scrollElement) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            >
                 {articles.map((item) => (
                     <ArticleListItem
                         article={item}
@@ -115,6 +117,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 <div
                     ref={registerChild}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+                    data-testid="ArticleList"
+
                 >
                     {virtualized
                         ? (

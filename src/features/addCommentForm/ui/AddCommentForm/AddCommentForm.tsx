@@ -20,7 +20,7 @@ const reducers: ReducersList = {
     addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm = memo((props: AddCommentFormProps) => {
+export const AddCommentForm = memo((props: AddCommentFormProps) => {
     const { className, onSendComment } = props;
     const { t } = useTranslation();
     const text = useSelector(getAddCommentFormText);
@@ -38,16 +38,23 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <HStack justify="between" max className={classNames(cls.AddCommentForm, {}, [className])}>
+            <HStack
+                data-testid="AddCommentForm"
+                justify="between"
+                max
+                className={classNames(cls.AddCommentForm, {}, [className])}
+            >
                 <Input
                     className={cls.input}
                     placeholder={t('Введите текст комментария')}
                     value={text}
                     onChange={onCommentTextChange}
+                    data-testid="AddCommentForm.Input"
                 />
                 <Button
                     theme={ButtonTheme.OUTLINE}
                     onClick={onSendHandler}
+                    data-testid="AddCommentForm.Button"
                 >
                     {t('Отправить')}
                 </Button>
@@ -56,4 +63,5 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     );
 });
 
+// @ts-ignore
 export default AddCommentForm;
