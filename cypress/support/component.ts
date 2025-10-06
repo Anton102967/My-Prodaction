@@ -20,6 +20,10 @@ import './commands';
 // require('./commands')
 
 import { mount } from 'cypress/react18';
+import { $api } from '../../src/shared/api/api';
+
+const apiUrl = Cypress.env('apiUrl') ?? 'http://localhost:8000';
+$api.defaults.baseURL = apiUrl;
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
