@@ -22,7 +22,7 @@ export enum TextSize {
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';
 
-const mapSizeToHeaderTag : Record<TextSize, HeaderTagType> = {
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.S]: 'h3',
     [TextSize.M]: 'h2',
     [TextSize.L]: 'h1',
@@ -36,7 +36,7 @@ interface TextProps {
     align?: TextAlign;
     size?: TextSize;
 
-    'data-testid'?: string
+    'data-testid'?: string;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -60,20 +60,16 @@ export const Text = memo((props: TextProps) => {
 
     return (
         <div className={classNames(cls.Text, mods, [className])}>
-            {title
-                && (
-                    <HeaderTag
-                        className={cls.title}
-                        data-testid={`${dataTestId}.Header`}
-                    >
-                        {title}
-                    </HeaderTag>
-                )}
-            {text && (
-                <p
-                    className={cls.text}
-                    data-testid={`${dataTestId}.Paragraph`}
+            {title && (
+                <HeaderTag
+                    className={cls.title}
+                    data-testid={`${dataTestId}.Header`}
                 >
+                    {title}
+                </HeaderTag>
+            )}
+            {text && (
+                <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
                     {text}
                 </p>
             )}

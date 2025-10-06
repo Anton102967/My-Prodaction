@@ -11,7 +11,9 @@ export default {
 } as ComponentMeta<typeof RatingCard>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
+const Template: ComponentStory<typeof RatingCard> = (args) => (
+    <RatingCard {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

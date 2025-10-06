@@ -31,7 +31,8 @@ const config = {
         storybookConfig.resolve.modules = storybookConfig.resolve.modules || [];
         storybookConfig.resolve.modules.push(srcPath);
 
-        storybookConfig.resolve.extensions = storybookConfig.resolve.extensions || [];
+        storybookConfig.resolve.extensions =
+            storybookConfig.resolve.extensions || [];
         storybookConfig.resolve.extensions.push('.ts', '.tsx');
 
         storybookConfig.resolve.alias = {

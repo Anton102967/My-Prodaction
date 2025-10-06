@@ -17,7 +17,9 @@ export default {
 } as ComponentMeta<typeof ArticleInfiniteList>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
+    <ArticleInfiniteList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

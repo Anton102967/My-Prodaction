@@ -14,14 +14,15 @@ export default {
             user: { authData: { id: '1', username: 'admin' } },
         }),
     ],
-
 } as ComponentMeta<typeof ArticleDetailsComments>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
+    <ArticleDetailsComments {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
-// @ts-ignore
+    // @ts-ignore
     id: 1,
 };

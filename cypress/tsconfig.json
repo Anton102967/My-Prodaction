@@ -1,14 +1,14 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["es5", "dom"],
-    "types": ["cypress", "node"],
-    "allowJs": true,
-    "jsx": "react-jsx",                     // ✅ включаем поддержку JSX
-    "moduleResolution": "node",             // для корректного импорта
-    "esModuleInterop": true,                // иногда нужно для React
-    "skipLibCheck": true                    // ускоряет сборку
-  },
-  "exclude": ["../tsconfig.json", "node_modules", "dist"],
-  "include": ["**/*.ts", "**/*.tsx"]
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["es5", "dom"],
+        "types": ["cypress", "node"],
+        "allowJs": true,
+        "jsx": "react-jsx", // ✅ включаем поддержку JSX
+        "moduleResolution": "node", // для корректного импорта
+        "esModuleInterop": true, // иногда нужно для React
+        "skipLibCheck": true // ускоряет сборку
+    },
+    "exclude": ["../tsconfig.json", "node_modules", "dist"],
+    "include": ["**/*.ts", "**/*.tsx"]
 }

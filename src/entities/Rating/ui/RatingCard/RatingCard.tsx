@@ -1,7 +1,6 @@
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
@@ -37,14 +36,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -78,12 +80,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
                     onSelect={onSelectStars}
                 />
             </VStack>
+
             <BrowserView>
-                <Modal
-                    isOpen={isModalOpen}
-                    lazy
-                >
+                <Modal isOpen={isModalOpen} lazy>
                     <VStack max gap="32">
+                        {' '}
                         {modalContent}
                         <HStack max gap="16" justify="end">
                             <Button
@@ -101,15 +102,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
                             </Button>
                         </HStack>
                     </VStack>
-
                 </Modal>
             </BrowserView>
             <MobileView>
-                <Drawer
-                    isOpen={isModalOpen}
-                    onClose={cancelHandle}
-                    lazy
-                >
+                <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>
                     <VStack max gap="32">
                         {modalContent}
                         <Button
@@ -120,7 +116,6 @@ export const RatingCard = memo((props: RatingCardProps) => {
                             {t('Отправить')}
                         </Button>
                     </VStack>
-
                 </Drawer>
             </MobileView>
         </Card>

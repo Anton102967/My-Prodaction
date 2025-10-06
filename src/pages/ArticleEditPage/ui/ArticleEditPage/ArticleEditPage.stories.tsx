@@ -15,13 +15,14 @@ export default {
             user: { authData: { id: '1', username: 'admin' } },
         }),
     ],
-
 } as ComponentMeta<typeof ArticleEditPage>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
+const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
+    <ArticleEditPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
-// @ts-ignore
+    // @ts-ignore
     id: 1,
 };

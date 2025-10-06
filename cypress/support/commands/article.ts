@@ -34,20 +34,22 @@ const deleteArticleRequest = (articleId: string) => {
 };
 
 export const createArticle = (article?: DeepPartial<Article>) => {
-    return cy.request({
-        method: 'POST',
-        url: 'http://localhost:8000/articles',
-        headers: { authorization: 'hi' },
-        body: cloneArticlePayload(article),
-    }).then((response) => {
-        const createdArticle: Article = response.body;
+    return cy
+        .request({
+            method: 'POST',
+            url: 'http://localhost:8000/articles',
+            headers: { authorization: 'hi' },
+            body: cloneArticlePayload(article),
+        })
+        .then((response) => {
+            const createdArticle: Article = response.body;
 
-        if (createdArticle?.id) {
-            createdArticleIds.push(createdArticle.id);
-        }
+            if (createdArticle?.id) {
+                createdArticleIds.push(createdArticle.id);
+            }
 
-        return createdArticle;
-    });
+            return createdArticle;
+        });
 };
 
 export const removeArticle = (articleId: string) => {
@@ -82,11 +84,11 @@ export const removeTestArticles = () => {
 };
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      createArticle(article?: DeepPartial<Article>): Chainable<Article>;
-      removeArticle(articleId: string): Chainable<void>;
-      removeTestArticles(): Chainable<void>;
+    namespace Cypress {
+        interface Chainable {
+            createArticle(article?: DeepPartial<Article>): Chainable<Article>;
+            removeArticle(articleId: string): Chainable<void>;
+            removeTestArticles(): Chainable<void>;
+        }
     }
-  }
 }

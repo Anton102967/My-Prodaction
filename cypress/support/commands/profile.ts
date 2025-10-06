@@ -28,10 +28,10 @@ export const resetProfile = (profileId: string) => {
 };
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      updateProfile(firstName: string, lastName: string): Chainable<void>;
-      resetProfile(profileId: string): Chainable<void>;
+    namespace Cypress {
+        interface Chainable {
+            updateProfile(firstName: string, lastName: string): Chainable<void>;
+            resetProfile(profileId: string): Chainable<void>;
+        }
     }
-  }
 }
