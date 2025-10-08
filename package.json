@@ -30,9 +30,10 @@
         "generate:slice": "node ./scripts/createSlice/index.js"
     },
     "lint-staged": {
-        "**/*.{ts,tsx}": [
-            "eslint --fix"
-        ]
+      "**/*.{ts,tsx}": [
+        "eslint --fix",
+        "prettier --write"
+      ]
     },
     "keywords": [],
     "author": "",
