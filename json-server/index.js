@@ -10,7 +10,9 @@ const options = {
 
 const server = jsonServer.create();
 
-const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
+const router = jsonServer.router(
+    path.resolve(__dirname, 'json-server', 'db.json'),
+);
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
