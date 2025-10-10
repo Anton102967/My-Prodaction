@@ -11,3 +11,8 @@ export {
 export { userReducer, userActions } from './model/slice/userSlice';
 export type { UserSchema, User } from './model/types/user';
 export { UserRole } from '@/entities/User/model/const/userConst';
+export { saveJsonSettings } from './services/saveJsonSettings';
+export {
+    useJsonSettings,
+    getJsonSettings,
+} from './model/selectors/jsonSettings';
