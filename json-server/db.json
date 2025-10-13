@@ -725,14 +725,15 @@
         "ADMIN"
       ],
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlePageWasOpened": true
       },
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXOPKGYKGSfvk79-RlgfEbBKPQHv-XB8jh0Q&s"
     },
@@ -744,7 +745,7 @@
         "USER"
       ],
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_orange_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false
       },
@@ -968,6 +969,12 @@
       "articleId": "12",
       "rate": 0,
       "id": "qZboGYC"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 5,
+      "id": "UGQoEjU"
     }
   ],
   "profile-ratings": [
