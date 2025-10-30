@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
-import { Modal } from '@/shared/ui/Modal';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecatted/Text';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecatted/Drawer';
+import { Modal } from '@/shared/ui/deprecatted/Modal';
 
 export const ArticlePagesGreeting = memo(() => {
     const { t } = useTranslation();

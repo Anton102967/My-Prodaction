@@ -1,20 +1,20 @@
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
-import { Icon } from '@/shared/ui/Icon';
+import { Text } from '@/shared/ui/deprecatted/Text';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { Card } from '@/shared/ui/Card';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { AppLink } from '@/shared/ui/AppLink';
+import { Card } from '@/shared/ui/deprecatted/Card';
+import { Avatar } from '@/shared/ui/deprecatted/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/deprecatted/Button';
+import { AppLink } from '@/shared/ui/deprecatted/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/const/constArticle';
 import cls from './ArticleListItem.module.scss';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { AppImage } from '@/shared/ui/deprecatted/AppImage';
+import { Skeleton } from '@/shared/ui/deprecatted/Skeleton';
+import { Icon } from '@/shared/ui/deprecatted/Icon';
 
 interface ArticleListItemProps {
     className?: string;

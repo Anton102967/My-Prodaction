@@ -7,13 +7,12 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
+import { Text, TextAlign, TextSize } from '@/shared/ui/deprecatted/Text';
+import { Skeleton } from '@/shared/ui/deprecatted/Skeleton';
+import { Avatar } from '@/shared/ui/deprecatted/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import { Icon } from '@/shared/ui/Icon';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecatted/Stack';
 import { ArticleBlockType } from '../../model/const/constArticle';
 import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
@@ -27,6 +26,7 @@ import {
     getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
 import { ArticleBlock } from '../../model/types/article';
+import { Icon } from '@/shared/ui/deprecatted/Icon';
 
 interface ArticleDetailsProps {
     className?: string;
