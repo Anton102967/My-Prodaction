@@ -26,7 +26,7 @@ module.exports = {
         'ulbi-tv-plugin',
     ],
     rules: {
-        'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },

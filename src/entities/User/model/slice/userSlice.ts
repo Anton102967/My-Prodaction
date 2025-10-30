@@ -42,9 +42,9 @@ export const userSlice = createSlice({
             },
         );
         builder.addCase(initAuthData.rejected, (state) => {
-            if (state.authData) {
-                state._inited = true;
-            }
+            state.authData = undefined;
+            setFeatureFlag({}); // сброс фич к дефолту, чтобы не потянуть старые
+            state._inited = true;
         });
     },
 });
