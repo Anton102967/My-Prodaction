@@ -39,7 +39,7 @@ export const Text = memo((props: TextProps) => {
         text,
         title,
         variant = 'primary',
-        align = 'center',
+        align = 'left',
         size = 'm',
         'data-testid': dataTestId = 'Text',
     } = props;

@@ -1,12 +1,15 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, CardTheme } from '@/shared/ui/deprecatted/Card';
-import { Text } from '@/shared/ui/deprecatted/Text';
+import {
+    Card as CardDeprecarted,
+    CardTheme,
+} from '@/shared/ui/deprecatted/Card';
+import { Text as TextDeprecarted } from '@/shared/ui/deprecatted/Text';
 import { Notification } from '../../model/types/notification';
 import cls from './NotificationItem.module.scss';
-import { getFeatureFlag } from '@/shared/features';
-import redesignedPopupCls from '@/shared/ui/redesigned/Popups/styles/popup.module.scss';
-import deprecatedPopupCls from '@/shared/ui/deprecatted/Popups/styles/popup.module.scss';
+import { ToggleFeatures } from '@/shared/features';
+import { Card } from '@/shared/ui/redesigned/Card/Card';
+import { Text } from '@/shared/ui/redesigned/Text/Text';
 
 interface NotificationItemProps {
     className?: string;
@@ -15,49 +18,42 @@ interface NotificationItemProps {
 
 export const NotificationItem = memo((props: NotificationItemProps) => {
     const { className, item } = props;
-    const [isActive, setIsActive] = useState(false);
-
-    const activate = useCallback(() => {
-        setIsActive(true);
-    }, []);
-
-    const deactivate = useCallback(() => {
-        setIsActive(false);
-    }, []);
-
-    const activeClass = getFeatureFlag('isAppRedesigned')
-        ? redesignedPopupCls.active
-        : deprecatedPopupCls.active;
 
     const content = (
-        <Card
-            theme={CardTheme.OUTLINED}
-            className={classNames(
-                cls.NotificationItem,
-                { [activeClass]: isActive },
-                [className],
-            )}
-            tabIndex={0}
-            onMouseEnter={activate}
-            onMouseLeave={deactivate}
-            onFocus={activate}
-            onBlur={deactivate}
-        >
-            <Text title={item.title} text={item.description} />
-        </Card>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Card
+                    className={classNames(cls.NotificationItem, {}, [
+                        className,
+                    ])}
+                >
+                    <Text title={item.title} text={item.description} />
+                </Card>
+            }
+            off={
+                <CardDeprecarted
+                    theme={CardTheme.OUTLINED}
+                    className={classNames(cls.NotificationItem, {}, [
+                        className,
+                    ])}
+                >
+                    <TextDeprecarted
+                        title={item.title}
+                        text={item.description}
+                    />
+                </CardDeprecarted>
+            }
+        />
     );
 
     if (item.href) {
         return (
             <a
-                className={classNames(cls.link, { [activeClass]: isActive })}
+                className={cls.link}
                 target="_blank"
                 href={item.href}
                 rel="noreferrer"
-                onMouseEnter={activate}
-                onMouseLeave={deactivate}
-                onFocus={activate}
-                onBlur={deactivate}
             >
                 {content}
             </a>

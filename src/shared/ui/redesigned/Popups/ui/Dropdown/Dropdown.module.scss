@@ -14,4 +14,11 @@
     outline: none;
     color: var(--text-redesigned);
     cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus {
+        background: var(--light-bg-redesigned);
+        color: var(--accent-redesigned);
+    }
 }

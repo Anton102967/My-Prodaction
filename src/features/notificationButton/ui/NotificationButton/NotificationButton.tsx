@@ -2,15 +2,15 @@ import React, { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    Button as ButtonDerprecated,
+    Button as ButtonDeprecated,
     ButtonTheme,
 } from '@/shared/ui/deprecatted/Button';
 import { NotificationList } from '@/entities/Notification';
-import { Popover as PopoverDerprecated } from '@/shared/ui/deprecatted/Popups';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecatted/Popups';
 import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20.svg';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import cls from './NotificationButton.module.scss';
-import { Icon as IconDerprecated } from '@/shared/ui/deprecatted/Icon';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecatted/Icon';
 import { Drawer } from '@/shared/ui/deprecatted/Drawer/Drawer';
 import { ToggleFeatures } from '@/shared/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -46,15 +46,15 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             }
             off={
                 <div>
-                    <ButtonDerprecated
+                    <ButtonDeprecated
                         onClick={onOpenDrawer}
                         theme={ButtonTheme.CLEAR}
                     >
-                        <IconDerprecated
+                        <IconDeprecated
                             Svg={NotificationIconDeprecated}
                             inverted
                         />
-                    </ButtonDerprecated>
+                    </ButtonDeprecated>
                 </div>
             }
         />
@@ -77,7 +77,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                         </Popover>
                     }
                     off={
-                        <PopoverDerprecated
+                        <PopoverDeprecated
                             className={classNames(cls.NotificationButton, {}, [
                                 className,
                             ])}
@@ -85,7 +85,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                             trigger={trigger}
                         >
                             <NotificationList className={cls.notifications} />
-                        </PopoverDerprecated>
+                        </PopoverDeprecated>
                     }
                 />
             </BrowserView>
