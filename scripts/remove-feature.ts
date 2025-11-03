@@ -180,10 +180,11 @@ const replaceComponent = (node: Node) => {
 // Проходимся по каждому файлу и заменяем все вхождения
 // ----------------------
 files.forEach((sourceFile) => {
+    // eslint-disable-next-line consistent-return
     sourceFile.forEachDescendant((node) => {
         // Если это вызов toggleFeatures(...)
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            replaceToggleFunction(node);
+            return replaceToggleFunction(node);
         }
 
         // Если это JSX-компонент <ToggleFeatures ... />
@@ -191,7 +192,7 @@ files.forEach((sourceFile) => {
             node.isKind(SyntaxKind.JsxSelfClosingElement) &&
             isToggleComponent(node)
         ) {
-            replaceComponent(node);
+            return replaceComponent(node);
         }
     });
 });
