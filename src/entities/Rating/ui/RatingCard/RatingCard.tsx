@@ -2,7 +2,7 @@ import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { Card } from '@/shared/ui/deprecatted/Card';
-import { HStack, VStack } from '@/shared/ui/deprecatted/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/deprecatted/Text';
 import { StarRating } from '@/shared/ui/deprecatted/StarRating';
 import {

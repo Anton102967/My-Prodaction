@@ -8,7 +8,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from '@/shared/ui/deprecatted/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import {
     addCommentFormActions,
     addCommentFormReducer,

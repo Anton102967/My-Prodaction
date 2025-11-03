@@ -3,8 +3,8 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import cls from './Modal.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Portal } from '../Portal';
-import { Overlay } from '../Overlay';
+import { Portal } from '../../redesigned/Portal';
+import { Overlay } from '../../redesigned/Overlay';
 
 interface ModalProps {
     className?: string;
