@@ -1,0 +1,19 @@
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ProfileCardDeprecated } from './ProfileCardDeprecated';
+
+export default {
+    title: 'shared/ProfileCardDeprecated',
+    component: ProfileCardDeprecated,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ProfileCardDeprecated>;
+
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: ComponentStory<typeof ProfileCardDeprecated> = (args) => (
+    <ProfileCardDeprecated {...args} />
+);
+
+export const Normal = Template.bind({});
+Normal.args = {};
