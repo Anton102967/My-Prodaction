@@ -1,0 +1,19 @@
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ArticleListItemDeprecated } from './ArticleListItemDeprecated';
+
+export default {
+    title: 'shared/ArticleListItemDeprecated',
+    component: ArticleListItemDeprecated,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticleListItemDeprecated>;
+
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: ComponentStory<typeof ArticleListItemDeprecated> = (args) => (
+    <ArticleListItemDeprecated {...args} />
+);
+
+export const Normal = Template.bind({});
+Normal.args = {};
