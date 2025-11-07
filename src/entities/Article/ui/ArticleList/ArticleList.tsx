@@ -9,6 +9,8 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
 import { PAGE_ID } from '../../model/const/constPage';
+import { ToggleFeatures } from '@/shared/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
     className?: string;
@@ -37,7 +39,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         view = ArticleView.SMALL,
         isLoading,
         target,
-        virtualized = true,
+        virtualized = false,
     } = props;
     const { t } = useTranslation();
 
@@ -92,23 +94,50 @@ export const ArticleList = memo((props: ArticleListProps) => {
     };
     if (!virtualized || !scrollElement) {
         return (
-            <div
-                className={classNames(cls.ArticleList, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
-                {articles.map((item) => (
-                    <ArticleListItem
-                        article={item}
-                        view={view}
-                        target={target}
-                        key={item.id}
-                        className={cls.card}
-                    />
-                ))}
-                {isLoading && getSkeletons(view)}
-            </div>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <HStack
+                        wrap="wrap"
+                        gap="16"
+                        className={classNames(
+                            cls.ArticleListRedesigned,
+                            {},
+                            [],
+                        )}
+                    >
+                        {articles.map((item) => (
+                            <ArticleListItem
+                                article={item}
+                                view={view}
+                                target={target}
+                                key={item.id}
+                                className={cls.card}
+                            />
+                        ))}
+                        {isLoading && getSkeletons(view)}
+                    </HStack>
+                }
+                off={
+                    <div
+                        className={classNames(cls.ArticleList, {}, [
+                            className,
+                            cls[view],
+                        ])}
+                    >
+                        {articles.map((item) => (
+                            <ArticleListItem
+                                article={item}
+                                view={view}
+                                target={target}
+                                key={item.id}
+                                className={cls.card}
+                            />
+                        ))}
+                        {isLoading && getSkeletons(view)}
+                    </div>
+                }
+            />
         );
     }
     return (
@@ -133,7 +162,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         <List
                             height={height ?? 700}
                             rowCount={rowCount}
-                            rowHeight={isBig ? 700 : 330}
+                            rowHeight={isBig ? 750 : 330}
                             rowRenderer={rowRenderer}
                             width={width ? width - 80 : 700}
                             autoHeight
