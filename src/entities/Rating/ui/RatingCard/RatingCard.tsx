@@ -11,8 +11,8 @@ import {
     ButtonTheme,
 } from '@/shared/ui/deprecatted/Button';
 import { Input } from '@/shared/ui/deprecatted/Input';
-import { Modal } from '@/shared/ui/deprecatted/Modal';
-import { Drawer } from '@/shared/ui/deprecatted/Drawer/Drawer';
+import { Modal } from '@/shared/ui/redesigned/Modal';
+import { Drawer } from '@/shared/ui/redesigned/Drawer/Drawer';
 
 interface RatingCardProps {
     className?: string;

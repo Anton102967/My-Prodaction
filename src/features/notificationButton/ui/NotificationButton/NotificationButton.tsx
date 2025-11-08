@@ -11,7 +11,7 @@ import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import cls from './NotificationButton.module.scss';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecatted/Icon';
-import { Drawer } from '@/shared/ui/deprecatted/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer/Drawer';
 import { ToggleFeatures } from '@/shared/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover } from '@/shared/ui/redesigned/Popups/ui/Popover/Popover';
