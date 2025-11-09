@@ -714,6 +714,18 @@
       "userId": "4",
       "text": "text",
       "id": "YiSH0CE"
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "text": "Меня зовут Олег",
+      "id": "u6d3MaC"
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ea eos fugiat maxime modi quas quibusdam quod reiciendis sit tempora, tempore, vero. Animi, dolore impedit. Commodi, facilis, sapiente? Aliquam ea exercitationem facilis fugiat hic labore minima molestiae natus nemo nesciunt odio officia optio pariatur praesentium repellat, saepe sapiente sint sit veniam voluptatum. Atque deleniti dolores incidunt itaque laudantium nihil nulla placeat, repellat suscipit tenetur? Animi dignissimos ea iste, omnis praesentium quis quos recusandae sapiente? Accusantium adipisci dicta ea error eveniet excepturi harum ipsum, iure laudantium natus nostrum numquam quas quidem quis quod reiciendis repellendus saepe, tempore. Ad necessitatibus quam tempore",
+      "id": "EirIv0Q"
     }
   ],
   "users": [
@@ -752,7 +764,8 @@
       },
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedesigned": true
       },
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeqHclybx5k8JJj7BiU0sHINoJyT6k_O1r5A&s"
     },
@@ -994,6 +1007,37 @@
       "articleId": "7",
       "rate": 3,
       "id": "74eu5yV"
+    },
+    {
+      "userId": "2",
+      "articleId": "7",
+      "rate": 0,
+      "id": "zoJ3WBl"
+    },
+    {
+      "userId": "2",
+      "articleId": "7",
+      "rate": 5,
+      "id": "gc0I6-F"
+    },
+    {
+      "userId": "2",
+      "articleId": "7",
+      "rate": 5,
+      "id": "LcgCgNz"
+    },
+    {
+      "userId": "2",
+      "articleId": "7",
+      "rate": 3,
+      "id": "ECfYsFb"
+    },
+    {
+      "userId": "2",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "7Sg2SgN"
     }
   ],
   "profile-ratings": [

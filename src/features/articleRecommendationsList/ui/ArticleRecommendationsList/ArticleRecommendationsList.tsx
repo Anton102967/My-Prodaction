@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/deprecatted/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecatted/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleList } from '@/entities/Article';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
+import { ToggleFeatures } from '@/shared/features';
 
 interface ArticleRecommendationsListProps {
     className?: string;
@@ -21,13 +23,13 @@ export const ArticleRecommendationsList = memo(
         } = useArticleRecommendationsList(3);
 
         if (isLoading) {
-            return <Text title={t('Загрузка...')} />;
+            return <TextDeprecated title={t('Загрузка...')} />;
         }
         if (error) {
-            return <Text title={t('Ошибка загрузки рекомендаций')} />;
+            return <TextDeprecated title={t('Ошибка загрузки рекомендаций')} />;
         }
         if (!articles?.length) {
-            return <Text title={t('Нет рекомендаций')} />;
+            return <TextDeprecated title={t('Нет рекомендаций')} />;
         }
 
         return (
@@ -36,7 +38,16 @@ export const ArticleRecommendationsList = memo(
                 gap="8"
                 className={classNames('', {}, [className])}
             >
-                <Text size={TextSize.L} title={t('Рекомендуем')} />
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<Text size="l" title={t('Рекомендуем')} />}
+                    off={
+                        <TextDeprecated
+                            size={TextSize.L}
+                            title={t('Рекомендуем')}
+                        />
+                    }
+                />
                 <ArticleList
                     articles={articles}
                     target="_blank"
