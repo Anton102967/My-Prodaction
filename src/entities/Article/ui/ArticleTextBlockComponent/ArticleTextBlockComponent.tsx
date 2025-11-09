@@ -1,9 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/deprecatted/Text';
+import { Text as TextDeeprcated } from '@/shared/ui/deprecatted/Text';
 import cls from './ArticleTextBlockComponent.module.scss';
 import { ArticleTextBlock } from '../../model/types/article';
+import { ToggleFeatures } from '@/shared/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleTextBlockComponentProps {
     className?: string;
@@ -22,13 +24,34 @@ export const ArticleTextBlockComponent = memo(
                 ])}
             >
                 {block.title && (
-                    <Text title={block.title} className={cls.title} />
+                    <ToggleFeatures
+                        feature="isAppRedesigned"
+                        on={<Text title={block.title} className={cls.title} />}
+                        off={
+                            <TextDeeprcated
+                                title={block.title}
+                                className={cls.title}
+                            />
+                        }
+                    />
                 )}
                 {block.paragraphs.map((paragraph, index) => (
-                    <Text
-                        key={paragraph}
-                        text={paragraph}
-                        className={cls.paragraph}
+                    <ToggleFeatures
+                        feature="isAppRedesigned"
+                        on={
+                            <Text
+                                key={paragraph}
+                                text={paragraph}
+                                className={cls.paragraph}
+                            />
+                        }
+                        off={
+                            <TextDeeprcated
+                                key={paragraph}
+                                text={paragraph}
+                                className={cls.paragraph}
+                            />
+                        }
                     />
                 ))}
             </div>
