@@ -745,7 +745,7 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
-        "isAppRedesigned": true
+        "isAppRedesigned": false
       },
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXOPKGYKGSfvk79-RlgfEbBKPQHv-XB8jh0Q&s"
     },
