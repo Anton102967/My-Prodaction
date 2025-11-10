@@ -103,13 +103,14 @@
 }
 
 .ArticleListItemRedesigned {
-    &.BIG {
-        width: 100%;
-    }
+  &.BIG {
+    width: 100%;
+  }
 
-    &.SMALL {
-        width: 240px;
-        height: 350px;
+  &.SMALL {
+    .card {
+      height: 350px;
+      width: 240px;
     }
-
+  }
 }

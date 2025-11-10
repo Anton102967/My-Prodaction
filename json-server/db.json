@@ -737,15 +737,12 @@
         "ADMIN"
       ],
       "jsonSettings": {
-        "theme": "app_dark_theme",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false,
         "isArticlePageWasOpened": true
       },
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXOPKGYKGSfvk79-RlgfEbBKPQHv-XB8jh0Q&s"
     },
