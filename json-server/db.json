@@ -737,7 +737,8 @@
         "ADMIN"
       ],
       "jsonSettings": {
-        "isArticlePageWasOpened": true
+        "isArticlePageWasOpened": true,
+        "theme": "app_light_theme"
       },
       "features": {
         "isArticleRatingEnabled": true,
