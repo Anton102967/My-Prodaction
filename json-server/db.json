@@ -738,7 +738,7 @@
       ],
       "jsonSettings": {
         "isArticlePageWasOpened": true,
-        "theme": "app_light_theme"
+        "theme": "app_dark_theme"
       },
       "features": {
         "isArticleRatingEnabled": true,
